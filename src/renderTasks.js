@@ -59,6 +59,13 @@ const renderTasks = (arrayTasks, nodeEdit) => {
     deleteTask.setAttribute("src", "./img/delete.png");
     taskControl.appendChild(deleteTask);
 
+    const dateTask = document.createElement("p");
+    dateTask.classList.add("date-task");
+    dateTask.textContent=task.date
+    taskControl.appendChild(dateTask);
+
+    
+
     deleteTask.addEventListener("click", (e) => {
       const tasksContent = document.querySelectorAll(".task-item");
       let nodeEdit;
@@ -111,7 +118,6 @@ const renderTasks = (arrayTasks, nodeEdit) => {
     });
 
     editTask.addEventListener("click", (e) => {
-      console.log(tasks);
       const tasksContent = document.querySelectorAll(".task-item");
       let nodeEdit;
       tasksContent.forEach((el) => {
@@ -186,25 +192,39 @@ const renderTasks = (arrayTasks, nodeEdit) => {
           const taskFindEdit = tasks.find(
             (task) => task.idTask === e.target.dataset.idTask
           );
+
+
           const inputTitleValue = document.querySelector(
             ".title-input-edit-task"
           ).value;
           const inputDetailsValue = document.querySelector(
             ".details-input-edit-task"
           ).value;
+          let inputDateValue = document.querySelector(
+            ".date-input-edit-task"
+          ).value;
+          
 
+          if(!inputDateValue) inputDateValue = 'no date'
 
           nodeEdit.children[0].children[0].textContent = inputTitleValue
           nodeEdit.children[0].children[1].textContent = inputDetailsValue
+          nodeEdit.children[1].children[3].textContent = inputDateValue
+
+        
+
+        
 
           const newTask = {
             title: inputTitleValue,
             inputDetailsValue: inputDetailsValue || "not details",
-            date: "NO FUNCIONA",
+            date: inputDateValue || 'no date',
             idTask: nodeEdit.dataset.idTask,
             idProject: taskFindEdit.idProject,
+            isImportant: task.isImportant
           };
 
+     console.log(taskFindEdit)
           let objetoABuscar = taskFindEdit;
           let indice = tasks.indexOf(objetoABuscar);
           tasks[indice] = newTask;

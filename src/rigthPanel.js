@@ -130,7 +130,7 @@ const rigthPanel = () => {
           if (e.target.matches(".add-btn")) {
             let idTask = uniqid()
             const taskControl = document.querySelector('.control-content')
-            
+          
       
             const inputTitleValue =
               document.querySelector(".title-input-task").value;
@@ -138,14 +138,17 @@ const rigthPanel = () => {
               ".details-input-task"
             ).value;
 
+            const inputDateValue = document.querySelector('.date-input-task').value
+          
             if(!inputTitleValue) return
             
             const newTask = { 
                 title: inputTitleValue,
                 inputDetailsValue: inputDetailsValue || 'not details',
-                date: 'NO FUNCIONA',
+                date: inputDateValue || 'no date',
                 idProject: nodeEdit.dataset.id,
-                idTask: idTask
+                idTask: idTask,
+                isImportant:false,
             }
 
             tasks.push(newTask)

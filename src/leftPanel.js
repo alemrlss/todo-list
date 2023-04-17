@@ -183,11 +183,9 @@ divImportant.addEventListener('click',e=>{
             
           const mainTitleText = document.querySelector('.mainTitleText')
 
-         
           if(mainTitleText.textContent == nodeEdit.children[1].textContent)  { 
             mainTitleText.textContent = inputTextEditValue
           }
-
           nodeEdit.children[1].textContent = inputTextEditValue;
           const objFind = projects.find((obj) => obj.id == nodeEdit.dataset.id);
           objFind.title = inputTextEditValue;
