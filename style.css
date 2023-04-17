@@ -2,3 +2,443 @@
     margin:0px;
     padding:0px;
 }
+
+ /* NAV BAR */
+nav {
+    background-color: rgb(245, 248, 247);
+    border-bottom: 2px solid black;
+    text-align: center;
+    display: flex;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.icon{ 
+margin-left: 20px;
+margin-top: 10px;
+margin-bottom: 10px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    padding: 2px;  
+}
+
+.icon:hover{ 
+    background-color: rgba(157, 157, 157, 0.60);
+    border-radius: 5px;
+}
+.icon:active{ 
+    width: 49px;
+    height: 49px;
+}
+
+.navbar-title { 
+    margin-left: 50%;
+    font-size: 36px;
+}
+
+
+/*CONTAINER*/
+
+#content { 
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* LEFT PANEL */
+.leftPanel { 
+    background-color: transparent;
+    width: 350px;
+    padding: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.leftPanel p { 
+    margin: 0px;
+    margin-left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+}
+
+.leftPanel p:hover{ 
+    background-color: rgba(103, 101, 101, 0.146);
+    border-radius: 5px;
+}
+
+.leftPanel h3 { 
+    font-size: 36px; 
+    border-bottom: 2px solid #000000;
+    margin-bottom: 10px;
+    
+}
+.dynamic-projects { 
+   display: flex;
+   flex-direction: column;
+}
+
+.form-project { 
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+.icon-form{ 
+    width: 50px;
+    height: 50px;
+}
+
+.input-form { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+}
+.input-form-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.input-form-btns > * { 
+       margin: 5px;
+       padding: 5px;
+       color: white;
+}
+.cancel-form { 
+    background-color: red;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.submit-form { 
+    background-color: rgb(44, 120, 4);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+
+.input-projects { 
+    background-color:aliceblue;
+    border-style: solid;
+    height: 25px;
+    padding-left: 5px;
+}
+
+.add-project { 
+    cursor: pointer;
+    background-color: transparent;
+   border-style: solid;
+   border-radius: 30px;
+   padding:10px;
+   display: flex;
+   flex-direction: row;
+}
+ 
+.add-project:hover { 
+    background-color: rgba(76, 76, 75, 0.273);
+}
+
+.addProjectIcon { 
+    width: 30px;
+    height: 30px;
+}
+
+.addProjectBtn { 
+    background-color: transparent;
+    width: 100%;
+    cursor: pointer;
+    border:none;
+    font-size: 18px;
+}
+
+.item-project{ 
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    padding:5px;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+ 
+    border-radius: 10px;
+}
+
+
+.new-project-title { 
+    cursor: pointer;
+}
+.new-project-icon{ 
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+
+.new-project-edit, .new-project-delete{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+
+}
+
+
+.div-options { 
+    margin-left: auto;
+    display: flex;
+    
+}
+.form-projects-edit{ 
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(94, 95, 92, 0.186);
+    border-radius: 10px;
+    padding: 15px;
+}
+.input-text-edit { 
+    font-size: 16px;
+    border: solid 3px black;
+    background-color: transparent;
+    width: 60%;
+    height: 20px;
+    margin-right: 5px;
+    padding-left: 5px;
+}
+
+.input-submit-edit { 
+    background-color: rgb(83, 82, 82);
+    width: 20%;
+    height: 30px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 10px;
+   
+}
+
+
+
+.rigthPanel { 
+    display: flex;
+    flex-direction: column;
+  background-color: transparent;
+    flex: 1;
+    min-height: 90vh;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+
+.mainTitle { 
+    width: 80%;
+    background-color: #65c03eaf;
+    margin: 20px;
+    padding: 30px;
+    border-radius: 5px;
+    color: white;
+}
+
+.mainTitle > h2 { 
+    font-size: 46px;
+    margin-left: 5px;
+   
+}
+
+.control-content{ 
+    width: 80%;
+    margin: 20px;
+    background-color: transparent;
+    padding: 10px;
+}
+
+.tasks-content{ 
+    min-height: 90vh;
+    width: 80%;
+    margin: 20px;
+    margin-top: 0px;
+    background-color: transparent;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-task { 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.new-task:hover { 
+    color: rgb(61, 60, 60);
+    cursor: pointer;
+}
+
+.iconNewTask { 
+    width: 30px;
+    height: 30px;
+}
+
+.textNewTask { 
+    font-size: 20px;
+    margin-left: 2%;
+}
+
+
+.form-new-task { 
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+    padding:10px;
+    background-color: white;
+}
+
+.form-new-task > input { 
+    padding-left: 10px;
+}
+.title-input-task{ 
+    height: 25px;
+    border:2px solid black ;
+    background-color: transparent;
+}
+
+.details-input-task { 
+    height: 60px;
+    border:2px solid black ;
+}
+
+.date-input-task{ 
+    height: 25px;
+    border:2px solid black ;
+}
+
+.form-edit-task { 
+   
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+    padding:10px;
+    background-color: white;
+    border: 3px solid #000;
+}
+
+
+.form-edit-task > input { 
+    padding-left: 10px;
+}
+.title-input-edit-task{ 
+    border-radius: 10px;
+    height: 25px;
+    border:4px solid rgb(17, 108, 18);
+    background-color: transparent;
+}
+
+.details-input-edit-task { 
+    border-radius: 10px;
+    height: 60px;
+    border:4px solid rgb(17, 108, 18);
+
+}
+
+.date-input-edit-task{ 
+    border-radius: 10px;
+    height: 25px;
+    border:4px solid rgb(17, 108, 18);
+}
+
+.form-mode-edit { 
+    align-self: center;
+}
+
+
+.add-btn { 
+    color: white;
+    background-color: #3aa807;
+    padding:10px;
+    border-radius: 5px;
+
+    margin:10px;
+    margin-bottom: 5px;
+}
+
+.cancel-btn { 
+    color: white;
+    background-color: red;
+    padding:10px;
+    border-radius: 5px;
+    margin: 10px;
+    margin-bottom: 5px;
+}
+
+.btns-form-addTask { 
+    align-self: center;
+
+}
+
+
+.task-item{
+    margin: 5px;
+    border-style: solid; 
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.title-task { 
+    margin: 3px;
+margin-left: 5px;
+}
+
+.details-task{
+    margin: 3px;
+margin-left: 10px;
+}
+
+.taskControl { 
+    margin-left: auto;
+}
+
+.delete-task, .edit-task,.important-task  {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+
+
+.delete-task:hover { 
+    background-color: red;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+/* HELPERS*/
+
+.hidden  {
+    top: 0;
+    left: 0;
+    pointer-events: none !important;
+    position: absolute !important;
+    max-height: 0 !important;
+    transition: max-height 5s ease-out !important;
+    opacity: 0 !important;
+}
