@@ -149,6 +149,7 @@ const rigthPanel = () => {
                 idProject: nodeEdit.dataset.id,
                 idTask: idTask,
                 isImportant:false,
+                isChecked:false
             }
 
             tasks.push(newTask)

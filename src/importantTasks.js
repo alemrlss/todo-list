@@ -25,23 +25,41 @@ const importantTasks = (tasks) => {
       details: task.inputDetailsValue,
       date: task.date,
       idTask: task.idTask,
+      isChecked: task.isChecked
     };
 
     const divTask = document.createElement("div");
     divTask.classList.add("task-item");
     divTask.dataset.idTask = task.idTask;
 
+    const taskChecked = document.createElement("div");
+    taskChecked.classList.add("task-checked");
+
+    const checkTask = document.createElement("input");
+    checkTask.type = "checkbox";
+    checkTask.classList.add("checkbox");
+    checkTask.dataset.idTask = task.idTask;
+    newTask.isChecked?checkTask.checked = true:checkTask.checked = false
+    taskChecked.appendChild(checkTask);
+    divTask.appendChild(taskChecked);
+
     const taskInfo = document.createElement("div");
     taskInfo.classList.add("task-info");
 
     const titleTask = document.createElement("h4");
     titleTask.classList.add("title-task");
+    !newTask.isChecked
+    ? titleTask.classList.remove("textDecoration")
+    : titleTask.classList.add("textDecoration");
     titleTask.textContent = newTask.title;
     taskInfo.appendChild(titleTask);
 
     const detailsTask = document.createElement("p");
     detailsTask.classList.add("details-task");
     detailsTask.textContent = newTask.details;
+    !newTask.isChecked
+    ? detailsTask.classList.remove("textDecoration")
+    : detailsTask.classList.add("textDecoration");
     taskInfo.appendChild(detailsTask);
 
     divTask.appendChild(taskInfo);
@@ -63,6 +81,43 @@ const importantTasks = (tasks) => {
     divTask.appendChild(taskControl);
     taskContent.appendChild(divTask);
 
+    checkTask.addEventListener("change", (e) => {  
+      const tasksContent = document.querySelectorAll(".task-item");
+      let nodeEdit;
+      tasksContent.forEach((el) => {
+        if (el.dataset.idTask == e.target.dataset.idTask) {
+          nodeEdit = el;
+        }
+      });
+
+      const filterCheckboxTask = tasks.filter(
+        (obj) => obj.idTask == nodeEdit.dataset.idTask
+      );
+
+     
+      let isChecked = filterCheckboxTask[0].isChecked;
+
+      if (!isChecked) {
+        const index = tasks.findIndex(
+          (task) => task.idTask === nodeEdit.dataset.idTask
+        );
+        if (index !== -1) {
+          tasks[index].isChecked = true;
+        }
+        nodeEdit.children[1].children[0].style.textDecoration ='line-through'
+        nodeEdit.children[1].children[1].style.textDecoration ='line-through'
+      } else {
+        isChecked = true;
+        const index = tasks.findIndex(
+          (task) => task.idTask === nodeEdit.dataset.idTask
+        );
+        if (index !== -1) {
+          tasks[index].isChecked = false;
+        }
+        nodeEdit.children[1].children[0].style.textDecoration ='none'
+        nodeEdit.children[1].children[1].style.textDecoration ='none'
+      }
+    });
 
     importantTask.addEventListener("click", (e) => {
       const tasksContent = document.querySelectorAll(".task-item");
