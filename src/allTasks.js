@@ -7,12 +7,11 @@ const allTasks=(tasks)=>{
    
     
         titleMain.children[0].textContent ='All Tasks'
-        if(taskControl.childNodes.length == 2){  
-            taskControl.children[0].textContent =''
+
+        if( taskControl.children[1]){ 
             taskControl.children[1].remove()
-        } else { 
-            taskControl.children[0].textContent =''
-        }
+          }
+    
             while (taskContent.firstChild) {
               taskContent.removeChild(taskContent.firstChild);
             }
@@ -26,7 +25,7 @@ const allTasks=(tasks)=>{
                     date: task.date,
                     isImportant: task.isImportant
                   };
-                  console.log(newTask)
+               
               
                   const divTask = document.createElement("div");
                   divTask.classList.add("task-item");

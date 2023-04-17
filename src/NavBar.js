@@ -24,15 +24,23 @@ title.textContent = 'to-do list project'
 
 
     const btn = document.createElement('button')
-    btn.textContent = ' main array'
+    btn.textContent = ' array tasks'
 
 
 btn.addEventListener('click',e=>{
     console.log(tasks)
 })
 
+    const btnarray = document.createElement('button')
+    btnarray.textContent = ' array projects'
 
-    nav.appendChild(btn)
+
+    btnarray.addEventListener('click',e=>{
+    console.log(projects)
+})
+
+
+
 nav.appendChild(title)
 }
 

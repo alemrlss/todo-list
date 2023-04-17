@@ -42,7 +42,9 @@ const renderTasks = (arrayTasks, nodeEdit) => {
     const importantTask = document.createElement("img");
     importantTask.classList.add("important-task");
     importantTask.dataset.idTask = task.idTask;
-    task.isImportant?importantTask.setAttribute('src','./img/starYellow.png'):importantTask.setAttribute('src','./img/star.png')
+    task.isImportant
+      ? importantTask.setAttribute("src", "./img/starYellow.png")
+      : importantTask.setAttribute("src", "./img/star.png");
     taskControl.appendChild(importantTask);
 
     const editTask = document.createElement("img");
@@ -89,21 +91,130 @@ const renderTasks = (arrayTasks, nodeEdit) => {
 
       if (!isImportant) {
         importantTask.setAttribute("src", "./img/starYellow.png");
-        console.log(`El campo isImportant es: ${isImportant}`);
 
-        const index = tasks.findIndex((task) => task.idTask === nodeEdit.dataset.idTask);
+        const index = tasks.findIndex(
+          (task) => task.idTask === nodeEdit.dataset.idTask
+        );
         if (index !== -1) {
           tasks[index].isImportant = true;
         }
       } else {
         importantTask.setAttribute("src", "./img/star.png");
-        console.log(`El campo isImportant es: ${isImportant}`);
-        const index = tasks.findIndex((task) => task.idTask === nodeEdit.dataset.idTask);
+
+        const index = tasks.findIndex(
+          (task) => task.idTask === nodeEdit.dataset.idTask
+        );
         if (index !== -1) {
           tasks[index].isImportant = false;
         }
-
       }
+    });
+
+    editTask.addEventListener("click", (e) => {
+      console.log(tasks);
+      const tasksContent = document.querySelectorAll(".task-item");
+      let nodeEdit;
+      tasksContent.forEach((el) => {
+        if (el.dataset.idTask == e.target.dataset.idTask) {
+          nodeEdit = el;
+        }
+      });
+
+      const formTasks = document.createElement("form");
+      formTasks.classList.add("form-edit-task");
+
+      const taskFind = tasks.find(
+        (task) => task.idTask === e.target.dataset.idTask
+      );
+
+      const labelEditMode = document.createElement("label");
+      labelEditMode.textContent = `Mode Edit: ${taskFind.title}`;
+      labelEditMode.classList.add('form-mode-edit')
+      formTasks.appendChild(labelEditMode);
+
+      const labelTextTitleTask = document.createElement("label");
+      labelTextTitleTask.textContent = "Title:";
+      formTasks.appendChild(labelTextTitleTask);
+
+      const inputTextTitleTask = document.createElement("input");
+      inputTextTitleTask.classList.add("title-input-edit-task");
+      inputTextTitleTask.value = taskFind.title;
+      inputTextTitleTask.type = "text";
+      formTasks.appendChild(inputTextTitleTask);
+
+      const labelTextDetailsTask = document.createElement("label");
+      labelTextDetailsTask.textContent = "Details:";
+      formTasks.appendChild(labelTextDetailsTask);
+
+      const inputTextDetailsTask = document.createElement("input");
+      inputTextDetailsTask.classList.add("details-input-edit-task");
+      inputTextDetailsTask.value = taskFind.inputDetailsValue;
+      inputTextDetailsTask.type = "text";
+      formTasks.appendChild(inputTextDetailsTask);
+
+      const labelTextDateTask = document.createElement("label");
+      labelTextDateTask.textContent = "Date:";
+      formTasks.appendChild(labelTextDateTask);
+
+      const inputTextDateTask = document.createElement("input");
+      inputTextDateTask.classList.add("date-input-edit-task");
+      inputTextDateTask.type = "date";
+      formTasks.appendChild(inputTextDateTask);
+
+      const divButtons = document.createElement("div");
+      divButtons.classList.add("btns-form-addTask");
+
+      const addBtn = document.createElement("button");
+      addBtn.dataset.idTask = e.target.dataset.idTask;
+      addBtn.classList.add("add-btn");
+      addBtn.textContent = "Add";
+
+      const cancelBtn = document.createElement("button");
+      cancelBtn.classList.add("cancel-btn");
+      cancelBtn.textContent = "Cancel";
+
+      divButtons.appendChild(addBtn);
+      divButtons.appendChild(cancelBtn);
+      formTasks.appendChild(divButtons);
+
+      nodeEdit.replaceWith(formTasks);
+
+      divButtons.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if (e.target.matches(".add-btn")) {
+          const taskFindEdit = tasks.find(
+            (task) => task.idTask === e.target.dataset.idTask
+          );
+          const inputTitleValue = document.querySelector(
+            ".title-input-edit-task"
+          ).value;
+          const inputDetailsValue = document.querySelector(
+            ".details-input-edit-task"
+          ).value;
+
+
+          nodeEdit.children[0].children[0].textContent = inputTitleValue
+          nodeEdit.children[0].children[1].textContent = inputDetailsValue
+
+          const newTask = {
+            title: inputTitleValue,
+            inputDetailsValue: inputDetailsValue || "not details",
+            date: "NO FUNCIONA",
+            idTask: nodeEdit.dataset.idTask,
+            idProject: taskFindEdit.idProject,
+          };
+
+          let objetoABuscar = taskFindEdit;
+          let indice = tasks.indexOf(objetoABuscar);
+          tasks[indice] = newTask;
+          formTasks.replaceWith(nodeEdit);
+        }
+
+        if (e.target.matches(".cancel-btn")) {
+          formTasks.replaceWith(nodeEdit);
+        }
+      });
     });
 
     divTask.appendChild(taskControl);

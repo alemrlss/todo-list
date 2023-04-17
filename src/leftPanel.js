@@ -21,7 +21,9 @@ const leftPanel = () => {
 
   const divAllTask = document.createElement("div");
   const allTaskTitle = document.createElement("p");
+  allTaskTitle.classList.add('p-alltasks')
   allTaskTitle.textContent = "All Tasks";
+
   divAllTask.appendChild(allTaskTitle);
   leftPanel.appendChild(divAllTask);
 
@@ -100,7 +102,6 @@ divImportant.addEventListener('click',e=>{
     }
     if (e.target.matches(".submit-form")) {
 
-     
       let idProject
       idProject = uniqid()
       const newProject = document.createElement("div");
@@ -157,6 +158,7 @@ divImportant.addEventListener('click',e=>{
 
         const formProjects = document.createElement("form");
         formProjects.classList.add("form-projects-edit");
+        
         const inputTextEdit = document.createElement("input");
         inputTextEdit.value = nodeEdit.children[1].textContent;
         inputTextEdit.setAttribute("maxlength", "18");
@@ -174,15 +176,25 @@ divImportant.addEventListener('click',e=>{
 
 
         formProjects.addEventListener("submit", (e) => {
+
           e.preventDefault();
           const inputTextEditValue =
             document.querySelector(".input-text-edit").value;
+            
           const mainTitleText = document.querySelector('.mainTitleText')
-          mainTitleText.textContent = inputTextEditValue
+
+         
+          if(mainTitleText.textContent == nodeEdit.children[1].textContent)  { 
+            mainTitleText.textContent = inputTextEditValue
+          }
+
           nodeEdit.children[1].textContent = inputTextEditValue;
           const objFind = projects.find((obj) => obj.id == nodeEdit.dataset.id);
           objFind.title = inputTextEditValue;
           formProjects.replaceWith(nodeEdit);
+     
+      
+
         });
       });
 

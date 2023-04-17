@@ -1,19 +1,20 @@
 
 const importantTasks=(tasks)=>{
 
-
         const titleMain = document.querySelector('.mainTitle')
         const taskContent = document.querySelector('.tasks-content')
         const taskControl = document.querySelector('.control-content')
     
-    
+      
+        if( taskControl.children[1]){ 
+          taskControl.children[1].remove()
+        }
+        if( taskControl.children[0]){ 
+          taskControl.children[0].remove()
+        }
+
             titleMain.children[0].textContent ='Important Tasks'
-            if(taskControl.childNodes.length == 2){  
-                taskControl.children[0].textContent =''
-                taskControl.children[1].remove()
-            } else { 
-                taskControl.children[0].textContent =''
-            }
+          
                 while (taskContent.firstChild) {
                   taskContent.removeChild(taskContent.firstChild);
                 }

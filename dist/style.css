@@ -5,11 +5,11 @@
 
  /* NAV BAR */
 nav {
-    background-color: aquamarine;
+    background-color: rgb(245, 248, 247);
+    border-bottom: 2px solid black;
     text-align: center;
     display: flex;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   
 }
 
 .icon{ 
@@ -25,6 +25,10 @@ margin-bottom: 10px;
 .icon:hover{ 
     background-color: rgba(157, 157, 157, 0.60);
     border-radius: 5px;
+}
+.icon:active{ 
+    width: 49px;
+    height: 49px;
 }
 
 .navbar-title { 
@@ -43,7 +47,7 @@ margin-bottom: 10px;
 
 /* LEFT PANEL */
 .leftPanel { 
-    background-color: yellowgreen;
+    background-color: transparent;
     width: 350px;
     padding: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -57,8 +61,9 @@ margin-bottom: 10px;
     display: inline-block;
     padding: 10px;
 }
+
 .leftPanel p:hover{ 
-    background-color: rgb(254, 152, 20);
+    background-color: rgba(103, 101, 101, 0.146);
     border-radius: 5px;
 }
 
@@ -137,7 +142,7 @@ margin-bottom: 10px;
 }
  
 .add-project:hover { 
-    background-color: rgb(164, 220, 53);
+    background-color: rgba(76, 76, 75, 0.273);
 }
 
 .addProjectIcon { 
@@ -157,15 +162,15 @@ margin-bottom: 10px;
     display: flex;
     flex-direction: row;
     margin: 10px;
+    padding:5px;
     background-color: transparent;
     justify-content: center;
     align-items: center;
-}
-
-.item-project{ 
-    background-color: rgba(192, 212, 150, 0.267);
+ 
     border-radius: 10px;
 }
+
+
 .new-project-title { 
     cursor: pointer;
 }
@@ -197,7 +202,7 @@ margin-bottom: 10px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: rgba(117, 167, 9, 0.616);
+    background-color: rgba(94, 95, 92, 0.186);
     border-radius: 10px;
     padding: 15px;
 }
@@ -228,7 +233,7 @@ margin-bottom: 10px;
 .rigthPanel { 
     display: flex;
     flex-direction: column;
-    background-color: blueviolet;
+  background-color: transparent;
     flex: 1;
     min-height: 90vh;
     box-sizing: border-box;
@@ -238,10 +243,11 @@ margin-bottom: 10px;
 
 .mainTitle { 
     width: 80%;
-    background-color: #3aa807;
+    background-color: #65c03eaf;
     margin: 20px;
     padding: 30px;
     border-radius: 5px;
+    color: white;
 }
 
 .mainTitle > h2 { 
@@ -253,7 +259,7 @@ margin-bottom: 10px;
 .control-content{ 
     width: 80%;
     margin: 20px;
-    background-color: rgb(241, 135, 135);
+    background-color: transparent;
     padding: 10px;
 }
 
@@ -262,7 +268,7 @@ margin-bottom: 10px;
     width: 80%;
     margin: 20px;
     margin-top: 0px;
-    background-color: rgb(241, 135, 135);
+    background-color: transparent;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -292,13 +298,11 @@ margin-bottom: 10px;
 
 
 .form-new-task { 
-   
     display: flex;
     flex-direction: column;
     margin:10px;
     padding:10px;
     background-color: white;
-
 }
 
 .form-new-task > input { 
@@ -319,6 +323,45 @@ margin-bottom: 10px;
     height: 25px;
     border:2px solid black ;
 }
+
+.form-edit-task { 
+   
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+    padding:10px;
+    background-color: white;
+    border: 3px solid #000;
+}
+
+
+.form-edit-task > input { 
+    padding-left: 10px;
+}
+.title-input-edit-task{ 
+    border-radius: 10px;
+    height: 25px;
+    border:4px solid rgb(17, 108, 18);
+    background-color: transparent;
+}
+
+.details-input-edit-task { 
+    border-radius: 10px;
+    height: 60px;
+    border:4px solid rgb(17, 108, 18);
+
+}
+
+.date-input-edit-task{ 
+    border-radius: 10px;
+    height: 25px;
+    border:4px solid rgb(17, 108, 18);
+}
+
+.form-mode-edit { 
+    align-self: center;
+}
+
 
 .add-btn { 
     color: white;
